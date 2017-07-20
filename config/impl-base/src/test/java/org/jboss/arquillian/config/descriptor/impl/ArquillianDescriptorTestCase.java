@@ -136,7 +136,7 @@ public class ArquillianDescriptorTestCase {
         assertXPath(desc, "/arquillian/container/@default", "true");
 
         ArquillianDescriptor descriptor = create(desc);
-        Assert.assertEquals(0, descriptor.getContainers().size());
+        Assert.assertEquals(1, descriptor.getContainers().size());
         Assert.assertEquals(CONTAINER_NAME_2, descriptor.getContainers().get(0).getContainerName());
         Assert.assertTrue(descriptor.getContainers().get(0).isDefault());
     }

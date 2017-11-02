@@ -24,6 +24,7 @@
   <properties>
 
     <!-- Versioning -->
+    <smart.testing.version>0.0.6-SNAPSHOT</smart.testing.version>
 
   </properties>
 
@@ -65,6 +66,11 @@
       <artifactId>arquillian-core-impl-base</artifactId>
       <version>${project.version}</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.arquillian.smart.testing</groupId>
+      <artifactId>api</artifactId>
+      <version>${smart.testing.version}</version>
     </dependency>
 
     <dependency>

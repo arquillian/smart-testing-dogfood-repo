@@ -17,7 +17,9 @@
  */
 package org.jboss.arquillian.core.impl.loadable;
 
+import org.jboss.arquillian.core.impl.categories.LoaderCategory;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 /**
  * LoadableExtensionLoaderTestCase
@@ -25,6 +27,7 @@ import org.junit.Test;
  * @author <a href="mailto:aslak@redhat.com">Aslak Knutsen</a>
  * @version $Revision: $
  */
+@Category(LoaderCategory.class)
 public class LoadableExtensionLoaderTestCase {
 
     @Test

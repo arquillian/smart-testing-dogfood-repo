@@ -20,11 +20,13 @@ import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
+import org.jboss.arquillian.core.impl.categories.ServiceCategory;
 import org.jboss.arquillian.core.impl.loadable.util.FakeService;
 import org.jboss.arquillian.core.impl.loadable.util.ShouldBeExcluded;
 import org.jboss.arquillian.core.impl.loadable.util.ShouldBeIncluded;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 /**
  * Test cases for ServiceRegistry.
@@ -32,6 +34,7 @@ import org.junit.Test;
  * @author "Davide D'Alto"
  * @version $Revision: $
  */
+@Category(ServiceCategory.class)
 public class ServiceRegistryTestCase {
     @Test
     public void shouldBeAbleToAddImplementations() throws Exception {

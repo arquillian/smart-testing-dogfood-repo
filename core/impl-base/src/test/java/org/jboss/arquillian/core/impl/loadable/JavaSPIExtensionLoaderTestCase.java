@@ -20,6 +20,7 @@ package org.jboss.arquillian.core.impl.loadable;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
+import org.jboss.arquillian.core.impl.categories.LoaderCategory;
 import org.jboss.arquillian.core.impl.loadable.util.FakeService;
 import org.jboss.arquillian.core.impl.loadable.util.ShouldBeExcluded;
 import org.jboss.arquillian.core.impl.loadable.util.ShouldBeIncluded;
@@ -30,6 +31,7 @@ import org.jboss.shrinkwrap.api.classloader.ShrinkWrapClassLoader;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 /**
  * JavaSPIExtensionLoaderTestCase
@@ -37,6 +39,7 @@ import org.junit.Test;
  * @author Davide D'Alto
  * @version $Revision: $
  */
+@Category(LoaderCategory.class)
 public class JavaSPIExtensionLoaderTestCase {
 
     private static final String NEW_LINE = System.getProperty("line.separator");

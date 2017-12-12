@@ -24,12 +24,15 @@ import org.jboss.arquillian.core.api.Injector;
 import org.jboss.arquillian.core.api.Instance;
 import org.jboss.arquillian.core.api.annotation.ApplicationScoped;
 import org.jboss.arquillian.core.api.annotation.Inject;
+import org.jboss.arquillian.core.impl.categories.LoaderCategory;
+import org.jboss.arquillian.core.impl.categories.ServiceCategory;
 import org.jboss.arquillian.core.impl.loadable.util.FakeService;
 import org.jboss.arquillian.core.impl.loadable.util.ShouldBeExcluded;
 import org.jboss.arquillian.core.impl.loadable.util.ShouldBeIncluded;
 import org.jboss.arquillian.core.test.AbstractManagerTestBase;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 /**
  * Verify the behavior of the ServiceLoader exposed by the ServiceRegistry.
@@ -37,6 +40,7 @@ import org.junit.Test;
  * @author <a href="mailto:aslak@redhat.com">Aslak Knutsen</a>
  * @version $Revision: $
  */
+@Category({LoaderCategory.class, ServiceCategory.class})
 public class ServiceRegistryLoaderTestCase extends AbstractManagerTestBase {
     @Inject
     private Instance<Injector> injector;

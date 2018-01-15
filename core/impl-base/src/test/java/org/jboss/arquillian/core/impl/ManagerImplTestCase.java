@@ -19,6 +19,7 @@ package org.jboss.arquillian.core.impl;
 import org.jboss.arquillian.core.api.Instance;
 import org.jboss.arquillian.core.api.annotation.Inject;
 import org.jboss.arquillian.core.api.annotation.Observes;
+import org.jboss.arquillian.core.impl.categories.ExceptionCategory;
 import org.jboss.arquillian.core.spi.ManagerBuilder;
 import org.jboss.arquillian.core.spi.NonManagedObserver;
 import org.jboss.arquillian.core.spi.context.ApplicationContext;
@@ -29,6 +30,7 @@ import org.jboss.arquillian.core.test.context.ManagerTestContextImpl;
 import org.jboss.arquillian.core.test.context.ManagerTestScoped;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 /**
  * ManagerImplTestCase
@@ -127,12 +129,14 @@ public class ManagerImplTestCase {
     }
 
     @Test(expected = IllegalArgumentException.class)
+    @Category(ExceptionCategory.class)
     public void shouldThrowExceptionOnBindWithNoFoundScopedContext() throws Exception {
         ManagerImpl manager = (ManagerImpl) ManagerBuilder.from().create();
         manager.bind(ManagerTestScoped.class, Object.class, new Object());
     }
 
     @Test(expected = IllegalArgumentException.class)
+    @Category(ExceptionCategory.class)
     public void shouldThrowExceptionOnBindWithNonActiveScopedContext() throws Exception {
         ManagerImpl manager = (ManagerImpl) ManagerBuilder.from()
             .context(ManagerTestContextImpl.class).create();

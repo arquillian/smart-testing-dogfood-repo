@@ -19,12 +19,14 @@ package org.jboss.arquillian.core.impl;
 import org.jboss.arquillian.core.api.Instance;
 import org.jboss.arquillian.core.api.InstanceProducer;
 import org.jboss.arquillian.core.api.annotation.Observes;
+import org.jboss.arquillian.core.impl.categories.ExceptionCategory;
 import org.jboss.arquillian.core.spi.ManagerBuilder;
 import org.jboss.arquillian.core.test.context.ManagerTestContext;
 import org.jboss.arquillian.core.test.context.ManagerTestContextImpl;
 import org.jboss.arquillian.core.test.context.ManagerTestScoped;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 /**
  * InstanceImplTestCase
@@ -76,6 +78,7 @@ public class InstanceImplTestCase {
     }
 
     @Test(expected = IllegalStateException.class)
+    @Category(ExceptionCategory.class)
     public void shouldThrowExceptionIfTryingToSetAUnScopedInstance() throws Exception {
         ManagerImpl manager = (ManagerImpl) ManagerBuilder.from().create();
         InstanceProducer<Object> instance = InstanceImpl.of(Object.class, null, manager);

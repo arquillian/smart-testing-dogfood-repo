@@ -17,10 +17,12 @@
 package org.jboss.arquillian.core.impl;
 
 import org.jboss.arquillian.core.api.annotation.Observes;
+import org.jboss.arquillian.core.impl.categories.EventCategory;
 import org.jboss.arquillian.core.spi.EventContext;
 import org.jboss.arquillian.core.spi.ManagerBuilder;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 /**
  * EventImplTestCase
@@ -30,6 +32,7 @@ import org.junit.Test;
  */
 public class EventImplTestCase {
     @Test
+    @Category(EventCategory.class)
     public void shouldBeAbleToFireEvent() throws Exception {
         ManagerImpl manager = (ManagerImpl) ManagerBuilder.from()
             .extensions(TestObserver.class).create();

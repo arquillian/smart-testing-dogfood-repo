@@ -18,9 +18,12 @@ package org.jboss.arquillian.core.impl;
 
 import java.io.IOException;
 import org.jboss.arquillian.core.api.annotation.Observes;
+import org.jboss.arquillian.core.impl.categories.EventCategory;
+import org.jboss.arquillian.core.impl.categories.ExceptionCategory;
 import org.jboss.arquillian.core.spi.ManagerBuilder;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 /**
  * EventFireTestCase
@@ -30,6 +33,7 @@ import org.junit.Test;
  */
 public class EventFireTestCase {
     @Test
+    @Category(EventCategory.class)
     public void shouldBeAbleToFireEventToAExtension() throws Exception {
         ManagerImpl manager = (ManagerImpl) ManagerBuilder.from()
             .extension(ExtensionWithObservers.class).create();
@@ -40,6 +44,7 @@ public class EventFireTestCase {
     }
 
     @Test
+    @Category(EventCategory.class)
     public void shouldBeAbleToFireExceptionEventOnFailingObserver() throws Exception {
         ManagerImpl manager = (ManagerImpl) ManagerBuilder.from()
             .extensions(ExtensionWithExceptionObserver.class, ExtensionObservingException.class).create();
@@ -50,6 +55,7 @@ public class EventFireTestCase {
     }
 
     @Test(expected = IOException.class)
+    @Category({EventCategory.class, ExceptionCategory.class})
     public void shouldBeAbleToDetectExceptionEventLoopAndThrowOriginalException() throws Exception {
         ManagerImpl manager = (ManagerImpl) ManagerBuilder.from()
             .extensions(ExtensionObservingExceptionLoop.class).create();
